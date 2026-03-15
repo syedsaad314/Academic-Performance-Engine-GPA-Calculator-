@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Intelligence Module | Syed Saad</title>
+    <style>
+        /* MATTE OBSIDIAN & VIBRANT AMBER THEME */
+        :root {
+            --bg-deep: #0D0D0D;
+            --surface: #161616;
+            --amber: #FFB300;
+            --amber-glow: rgba(255, 179, 0, 0.25);
+            --text-high: #F2F2F2;
+            --text-low: #7A7A7A;
+            --border: #262626;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-high);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* TOP RIGHT SOCIALS */
+        .social-links {
+            position: absolute; top: 20px; right: 20px;
+            display: flex; gap: 15px; z-index: 100;
+        }
+        .social-links a {
+            transition: 0.3s; filter: grayscale(1) brightness(0.8);
+        }
+        .social-links a:hover {
+            filter: grayscale(0) brightness(1); transform: scale(1.1);
+        }
+
+        /* LOGO & HEADER */
+        header { text-align: center; padding: 4rem 1rem 2rem; width: 100%; }
+        
+        .logo-box {
+            width: 70px; height: 70px; margin: 0 auto 1.2rem;
+            border: 1.5px solid var(--amber); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--surface); box-shadow: 0 0 25px var(--amber-glow);
+        }
+
+        h1 { font-size: 2rem; letter-spacing: -0.5px; font-weight: 800; text-transform: uppercase; }
+        .tagline { color: var(--amber); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-top: 8px; }
+
+        /* WIZARD CARD */
+        .card {
+            width: 95%; max-width: 680px; background: var(--surface);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 2.5rem; margin-bottom: 4rem; box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            position: relative; overflow: hidden;
+        }
+
+        .step-title { font-size: 1.4rem; margin-bottom: 1.8rem; text-align: center; font-weight: 700; }
+
+        /* BUTTONS */
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        button {
+            padding: 1.2rem; border-radius: 10px; border: 1px solid var(--border);
+            background: #1D1D1D; color: var(--text-high); font-size: 0.95rem;
+            font-weight: 600; cursor: pointer; transition: 0.25s ease;
+        }
+
+        button:hover { border-color: var(--amber); color: var(--amber); background: #252525; }
+        button.primary { background: var(--amber); color: var(--bg-deep); border: none; width: 100%; margin-top: 25px; font-weight: 800; text-transform: uppercase; }
+        button.primary:hover { background: #FFC107; transform: translateY(-2px); box-shadow: 0 8px 20px var(--amber-glow); }
+
+        /* INPUTS */
+        .data-row {
+            display: grid; grid-template-columns: 30px 1.5fr 1fr 1fr; gap: 12px; margin-bottom: 10px; 
+            align-items: center; padding: 12px; background: #0F0F0F; border-radius: 8px; border: 1px solid var(--border);
+        }
+        .data-row input {
+            background: transparent; border: 1px solid var(--border); color: white;
+            padding: 10px; border-radius: 6px; outline: none; width: 100%;
+        }
+        .data-row input:focus { border-color: var(--amber); }
+        .row-idx { color: var(--amber); font-weight: 800; font-size: 0.9rem; }
+
+        /* REPORT VIEW */
+        .report-header { text-align: left; margin-bottom: 2rem; border-left: 4px solid var(--amber); padding-left: 20px; }
+        .report-meta { font-size: 0.8rem; color: var(--text-low); margin-bottom: 15px; line-height: 1.6; }
+        .final-score { font-size: 6rem; font-weight: 900; color: var(--amber); margin: 0.5rem 0; line-height: 1; }
+        .badge {
+            display: inline-block; padding: 8px 20px; border-radius: 4px;
+            background: var(--amber); color: var(--bg-deep);
+            font-weight: 900; font-size: 0.85rem; margin-bottom: 2rem;
+        }
+
+        /* SIGNATURE AREA */
+        .signature-section { margin-top: 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+        .sig-text { text-align: left; }
+        .sig-text p { color: var(--text-low); font-size: 0.75rem; letter-spacing: 1.5px; margin-bottom: 4px; }
+        .sig-text strong { color: var(--text-high); font-size: 1.1rem; }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="social-links">
+        <a href="https://github.com/syedsaad314" target="_blank" title="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/syed-saad-bin-irfan" target="_blank" title="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0077b5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+    </div>
+
+    <header>
+        <div class="logo-box">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30H40M30 20V40" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                <path d="M60 30H80" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                <path d="M22 78L38 62M22 62L38 78" stroke="#FFB300" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="70" cy="62" r="5" fill="#FFB300"/>
+                <circle cx="70" cy="78" r="5" fill="#FFB300"/>
+                <path d="M60 70H80" stroke="#FFB300" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h1>Performance Matrix</h1>
+        <div class="tagline">Computational Academic Audit</div>
+    </header>
+
+    <div class="card" id="step1">
+        <h2 class="step-title">Select Mode</h2>
+        <div class="menu-grid">
+            <button onclick="config.type='gpa'; next(1,2)">GPA (Semester)</button>
+            <button onclick="config.type='cgpa'; next(1,2)">CGPA (Total)</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="step2">
+        <h2 class="step-title">Structure Preference</h2>
+        <div class="menu-grid">
+            <button onclick="config.detailed=true; next(2,3)">Detailed (With Names)</button>
+            <button onclick="config.detailed=false; next(2,3)">Standard (Quick)</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="step3" style="text-align:center;">
+        <h2 class="step-title">Unit Count</h2>
+        <input type="number" id="qty" value="5" min="1" max="15" style="background:#000; border:1.5px solid var(--border); color:var(--amber); font-size:2.5rem; text-align:center; width:120px; border-radius:10px; padding:10px; font-weight:800;">
+        <button class="primary" onclick="initForm()">Proceed to Data Entry</button>
+    </div>
+
+    <div class="card hidden" id="step4">
+        <h2 class="step-title">Data Ingestion</h2>
+        <div id="formContainer"></div>
+        <button class="primary" onclick="processResults()">Execute Calculation</button>
+    </div>
+
+    <div class="card hidden" id="step5" style="text-align:center;">
+        <div class="report-header">
+            <div class="report-meta">
+                INSTITUTION: UNIVERSITY OF KARACHI (UBIT)<br>
+                DEPARTMENT: COMPUTER SCIENCE (BSSE)<br>
+                DATE: <span id="dateStamp"></span>
+            </div>
+            <h2 id="reportTitle" style="letter-spacing:1px; color:var(--text-low); font-size:0.9rem;">TRANSCRIPT SUMMARY</h2>
+        </div>
+        <div class="final-score" id="resScore">0.00</div>
+        <div class="badge" id="resProf">ACADEMIC RATING</div>
+        
+        <div class="signature-section">
+            <div class="sig-text">
+                <p>CERTIFIED SIGNATURE</p>
+                <strong>SYED SAAD BIN IRFAN</strong>
+            </div>
+            <div style="color:var(--text-low); font-size:0.6rem; text-align:right;">
+                SERIAL: LAB-2026-X<br>SYSTEM VERIFIED
+            </div>
+        </div>
+        <button class="primary" style="margin-top: 40px;" onclick="location.reload()">Reset Session</button>
+    </div>
+
+    <footer>
+        <p style="color:var(--text-low); font-size:0.8rem; margin: 2rem 0;">All computations verified by <strong>Saad Binary Engines</strong></p>
+    </footer>
+
+    <script>
+        let config = { type: '', detailed: false, count: 0 };
+
+        function next(hide, show) {
+            document.getElementById(`step${hide}`).classList.add('hidden');
+            document.getElementById(`step${show}`).classList.remove('hidden');
+        }
+
+        function initForm() {
+            config.count = document.getElementById('qty').value;
+            const container = document.getElementById('formContainer');
+            container.innerHTML = '';
+            const placeholder = config.type === 'gpa' ? 'Marks' : 'GPA';
+
+            for (let i = 1; i <= config.count; i++) {
+                const row = document.createElement('div');
+                row.className = 'data-row';
+                let html = `<div class="row-idx">${i}</div>`;
+                if (config.detailed) html += `<input type="text" id="n_${i}" placeholder="Name">`;
+                html += `
+                    <input type="number" id="s_${i}" placeholder="${placeholder}">
+                    <input type="number" id="c_${i}" placeholder="Cr" value="3">
+                `;
+                row.innerHTML = html;
+                container.appendChild(row);
+            }
+            next(3, 4);
+        }
+
+        function processResults() {
+            let totalW = 0, totalC = 0;
+            const getGP = (m) => m>=85?4:m>=80?3.8:m>=75?3.4:m>=71?3:m>=68?2.8:m>=64?2.4:m>=61?2:m>=57?1.8:m>=53?1.4:m>=50?1:0;
+            const getStatus = (v) => v>=3.8?"👑 ELITE PERFORMANCE":v>=3.4?"🌟 EXCELLENT":v>=3.0?"🚀 STRONG":v>=2.0?"⚠️ IMPROVEMENT NEEDED":"🛑 CRITICAL";
+
+            for (let i = 1; i <= config.count; i++) {
+                const s = parseFloat(document.getElementById(`s_${i}`).value) || 0;
+                const c = parseFloat(document.getElementById(`c_${i}`).value) || 0;
+                totalW += (config.type==='gpa'?getGP(s):s) * c;
+                totalC += c;
+            }
+
+            const final = totalC > 0 ? (totalW / totalC) : 0;
+            document.getElementById('dateStamp').innerText = new Date().toLocaleDateString('en-GB');
+            document.getElementById('reportTitle').innerText = config.type.toUpperCase() + ' ANALYSIS';
+            document.getElementById('resScore').innerText = final.toFixed(2);
+            document.getElementById('resProf').innerText = getStatus(final);
+            next(4, 5);
+        }
+    </script>
+</body>
+</html>
