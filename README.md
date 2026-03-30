@@ -14,9 +14,9 @@ It simplifies complex academic calculations into a clean, user-friendly workflow
   <br><br>
   <img src="assets/DATA.png" width="700"/>
   <br><br>
-  <img src="assets/FEATURE.png" width="700"/>
-  <br><br>
   <img src="assets/REPORT.png" width="700"/>
+  <br><br>
+  <img src="assets/FEATURE.png" width="700"/>
 </p>
 
 ---
@@ -30,7 +30,7 @@ It simplifies complex academic calculations into a clean, user-friendly workflow
 
 GPA is calculated using:
 
-> GPA = Total Grade Points ÷ Total Credit Hours :contentReference[oaicite:0]{index=0}  
+> GPA = (Σ (Grade Point × Credit Hours)) / (Σ Credit Hours)  
 
 ---
 
