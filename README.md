@@ -9,6 +9,9 @@ A structured and efficient GPA Calculator designed to compute, analyze, and repr
 The Academic Performance Engine is a logic-driven system that allows students to calculate their GPA using course data, credit hours, and grades.  
 It simplifies complex academic calculations into a clean, user-friendly workflow while maintaining accuracy and structure.
 
+## Deployment
+You can access the live project here: [Academic Performance Engine - GPA Calculator](https://syedsaad314.github.io/Academic-Performance-Engine-GPA-Calculator-/)
+
 <p align="center">
   <img src="assets/UI.png" width="700"/>
   <br><br>
